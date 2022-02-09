@@ -16,23 +16,21 @@ GPIO.setup(11, GPIO.OUT)
 print("s: move one step")
 position = 2.5
 direction = 1
-
+Servo = GPIO.PWM(11, 50)
+Servo.start(position)
 while True:
 	# Now we will start with a PWM signal at 50Hz at pin 18. 
 	# 50Hz should work for many servos very will. If not you can play with the frequency if you like.
-	Servo = GPIO.PWM(11, 50)						
-
-	# This command sets the left position of the servo
-	Servo.start(2.5)
+	#Servo = GPIO.PWM(11, 50)						
 
 	# Now the program asks for the direction the servo should turn.
-	input = raw_input("Selection: ") 
+	letter = input("Selection: ") 
 
 	# You can play with the values.
 	# 7.5 is in most cases the middle position
 	# 12.5 is the value for a 180 degree move to the right
 	# 2.5 is the value for a -90 degree move to the left
-	if(input == "s"):
+	if(letter == "s"):
 		if (direction == 1 and position < 12.5):
 			position = position + 2.5
 			Servo.ChangeDutyCycle(position)
@@ -44,4 +42,3 @@ while True:
 			Servo.ChangeDutyCycle(position)
 			if (position == 2.5):
 				direction = 1
-			
