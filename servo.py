@@ -32,13 +32,22 @@ while True:
 	# 2.5 is the value for a -90 degree move to the left
 	if(letter == "s"):
 		if (direction == 1 and position < 12.5):
-			position = position + 2.5
-			Servo.ChangeDutyCycle(position)
+			steps = 5
+			stepSize = 2.5 / steps
+			for i in range(0, 5):
+				position = position + stepSize
+				Servo.ChangeDutyCycle(position)
+				time.sleep(0.5)
 			if (position == 12.5):
 				direction = 0
 
 		elif (direction == 0 and position > 2.5):
-			position = position - 2.5
-			Servo.ChangeDutyCycle(position)
+			steps = 5
+			stepSize = 2.5 / steps
+			for i in range(0, 5):
+				position = position - stepSize
+				Servo.ChangeDutyCycle(position)
+				time.sleep(0.5)
 			if (position == 2.5):
 				direction = 1
+		time.sleep(1)
