@@ -13,74 +13,76 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
 
 # menu info
-print "l = move to the left"
-print "r = move to the right"
-print "m = move to the middle"
-print "t = test sequence"
-print "q = stop and exit"
+print("l = move to the left")
+print("r = move to the right")
+print("m = move to the middle")
+print("t = test sequence")
+print("q = stop and exit")
 
+Servo = GPIO.PWM(11, 50)
+Servo.start(2.5)
 while True:
 	# Now we will start with a PWM signal at 50Hz at pin 18. 
 	# 50Hz should work for many servos very will. If not you can play with the frequency if you like.
-	Servo = GPIO.PWM(11, 50)						
+	#Servo = GPIO.PWM(11, 50)						
 
 	# This command sets the left position of the servo
-	Servo.start(2.5)
+	#Servo.start(2.5)
 
 	# Now the program asks for the direction the servo should turn.
-	input = raw_input("Selection: ") 
+	selection = input("Selection: ") 
 
 	# You can play with the values.
 	# 7.5 is in most cases the middle position
 	# 12.5 is the value for a 180 degree move to the right
 	# 2.5 is the value for a -90 degree move to the left
-	if(input == "t"):
-		print "move to the center position:"
+	if(selection == "t"):
+		print("move to the center position:")
 		Servo.ChangeDutyCycle(7.5)
 		time.sleep(1)
-		print "move to the right position:"
+		print("move to the right position:")
 		Servo.ChangeDutyCycle(12.5)
 		time.sleep(1)
-		print "move to the left position:"
+		print("move to the left position:")
 		Servo.ChangeDutyCycle(2.5)
 		time.sleep(1)
 		# this stops the PWM signal
-		print "Move back to start position."
-		Servo.stop()
+		print("Move back to start position.")
+		#Servo.stop()
 
 	# direction right
-	if(input == "r"):
+	if(selection == "r"):
 
 		# how many steps should the move take.
-		steps = raw_input("steps (1 - 10): ") 
-		print steps, "steps to the right"
+		steps = input("steps (1 - 10): ") 
+		print(steps, "steps to the right")
 		stepslength = 12.5 / int(steps)
 		for Counter in range(int(steps)):
 			Servo.ChangeDutyCycle(stepslength * (Counter + 1))
-			print stepslength * (Counter + 1)
+			print(stepslength * (Counter + 1))
 			time.sleep(0.5)
 			
 		time.sleep(1)	
 		# PWM stop
-		print "Move back to start position."
-		Servo.stop()
+		print("Move back to start position.")
+		#Servo.stop()
 
 	# move to the center position
-	elif(input == "m"):
-		print "Move back to the center position."
+	elif(selection == "m"):
+		print("Move back to the center position.")
 		Servo.start(7.5)
 		time.sleep(1)
 		# PWM stop
-		print "Move back to start position."
-		Servo.stop()
+		print("Move back to start position.")
+		#Servo.stop()
 	
 	# move to the left
-	elif(input == "l"):
-		print "Move  to the max right position and then to the left position."
+	elif(selection == "l"):
+		print("Move  to the max right position and then to the left position.")
 		Servo.start(12.5)
 		# how many steps...
-		steps = raw_input("steps (1 - 10): ") 
-		print steps, "steps to the right"
+		steps = input("steps (1 - 10): ") 
+		print(steps, "steps to the right")
 		stepslength = 12.5 / int(steps)
 		for Counter in range(int(steps)):
 			Servo.ChangeDutyCycle(12.5 - (stepslength * (Counter + 1)))
@@ -89,16 +91,17 @@ while True:
 		
 		time.sleep(1)
 		# PWM stop
-		print "Move back to start position."
-		Servo.stop()
+		print("Move back to start position.")
+		#Servo.stop()
 	
 	# close program
-	elif(input == "q"):
-		print "stop the program and exit......"
+	elif(selection == "q"):
+		print("stop the program and exit......")
 		os._exit(1)
-		Servo.stop()
+		#Servo.stop()
 		GPIO.cleanup()
 		
 	# input not valid
 	else:
-		print "input not valid!"
+		print("input not valid!")
+	Servo.ChangeDutyCycle(2.5)
