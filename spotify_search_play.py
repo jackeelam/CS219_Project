@@ -3,7 +3,7 @@ import spotipy
 import spotipy.util as util
 from pprint import pprint
 
-scope = 'user-library-read'
+scope = ['user-library-read', 'user-read-playback-state', 'user-modify-playback-state']
 
 CLIENT_ID = "bc5acc7719dd4922bd6b5a92c50c52f6"
 CLIENT_SECRET = "c0f0176250cb4906b257c4f416228889"
