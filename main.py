@@ -8,9 +8,8 @@ import RPi.GPIO as GPIO
 import time
 import os
 from servoFunction import servoFunction
-
 servoClass = servoFunction()
-
+#https://www.google.com/?code=AQCL7lmEQXDqIMvg_tWPsdYWbkXnB4Yj6PWbuEgSSG3i0ZpPAJm5cxwgxbthiY5zCm5CQGGeKzPyFDvEk-1VtrlvMNyA2bKY0bmaoH2HkLnynl9NqREZQ3d2KEuQ8x7MhL2yBS7xd2V5wcvckj9fFIEQxPeVe5HgAskvdXiLRxGf71gxtZFSyNYCr_n87_3pU55K1yli-MA2N0hXfI2cOHccOwdf5xqYKTJepVUhoh9e2aqpSHy5086uHzhpDPM
 CLIENT_ID = "bc5acc7719dd4922bd6b5a92c50c52f6"
 CLIENT_SECRET = "c0f0176250cb4906b257c4f416228889"
 
@@ -46,4 +45,6 @@ while True:
             #TODO: Rotate to position i
             servoClass.rotateMotor(1)
 
-    
+        time.sleep(1)
+    time.sleep(2)
+    servoClass.reset()

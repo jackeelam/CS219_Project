@@ -18,9 +18,18 @@ class servoFunction:
 		self.Servo = GPIO.PWM(11, 50)
 		self.Servo.start(self.position)
 
+	def reset(self):
+		steps = 5
+		stepSize = 2.5 / steps
+		while (self.position > 2.5):
+			self.position = self.position - stepSize
+			print(self.position, "/n")
+			self.Servo.ChangeDutyCycle(self.position)
+			time.sleep(0.5)
+
 	def rotateMotor(self, rotate):
 		if (rotate == 1):
-			if (self.direction == 1 and self.position < 12.5):
+			if (self.direction == 1 and self.position < 7.5):
 				steps = 5
 				stepSize = 2.5 / steps
 				for i in range(0, 5):
@@ -28,7 +37,7 @@ class servoFunction:
 					print(self.position, "/n")
 					self.Servo.ChangeDutyCycle(self.position)
 					time.sleep(0.5)
-				if (self.position == 12.5):
+				if (self.position == 7.5):
 					self.direction = 0
 
 			elif (self.direction == 0 and self.position > 2.5):
