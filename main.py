@@ -3,6 +3,13 @@ import spotipy
 import spotipy.util as util
 from pprint import pprint
 from spotify_search_play import spotify
+sys.path.append(".")
+import RPi.GPIO as GPIO
+import time
+import os
+from servoFunction import servoFunction
+
+servoClass = servoFunction()
 
 CLIENT_ID = "bc5acc7719dd4922bd6b5a92c50c52f6"
 CLIENT_SECRET = "c0f0176250cb4906b257c4f416228889"
@@ -37,6 +44,6 @@ while True:
 
         elif(i < num_tags-1):
             #TODO: Rotate to position i
-
+            servoClass.rotateMotor(1)
 
     

@@ -8,6 +8,5 @@ servoClass = servoFunction()
 while (1):
 	letter = input("Selection: ") 
 	if (letter == "s"):
-		rotate = 1
-		servoClass.rotateMotor(rotate)
+		servoClass.rotateMotor(1)
 		
