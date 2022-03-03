@@ -8,6 +8,8 @@ import RPi.GPIO as GPIO
 import time
 import os
 from servoFunction import servoFunction
+from Reader import rfid_reader
+
 servoClass = servoFunction()
 #https://www.google.com/?code=AQCL7lmEQXDqIMvg_tWPsdYWbkXnB4Yj6PWbuEgSSG3i0ZpPAJm5cxwgxbthiY5zCm5CQGGeKzPyFDvEk-1VtrlvMNyA2bKY0bmaoH2HkLnynl9NqREZQ3d2KEuQ8x7MhL2yBS7xd2V5wcvckj9fFIEQxPeVe5HgAskvdXiLRxGf71gxtZFSyNYCr_n87_3pU55K1yli-MA2N0hXfI2cOHccOwdf5xqYKTJepVUhoh9e2aqpSHy5086uHzhpDPM
 CLIENT_ID = "bc5acc7719dd4922bd6b5a92c50c52f6"
