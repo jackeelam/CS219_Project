@@ -69,13 +69,24 @@ while continue_reading:
         # Select the scanned tag
         MIFAREReader.MFRC522_SelectTag(uid)
 
-        # Authenticate
-        status = MIFAREReader.MFRC522_Auth(MIFAREReader.PICC_AUTHENT1A, 8, key, uid)
+        for block_num in range(16):
+            # Authenticate
+            status = MIFAREReader.MFRC522_Auth(MIFAREReader.PICC_AUTHENT1A, block_num, key, uid)
 
-        # Check if authenticated
-        if status == MIFAREReader.MI_OK:
-            MIFAREReader.MFRC522_Read(8)
-            MIFAREReader.MFRC522_StopCrypto1()
-        else:
-            print ("Authentication error")
+            # Check if authenticated
+            if status == MIFAREReader.MI_OK:
+                MIFAREReader.MFRC522_Read(block_num)
+                MIFAREReader.MFRC522_StopCrypto1()
+            else:
+                print ("Authentication error")
+
+        # # Authenticate
+        # status = MIFAREReader.MFRC522_Auth(MIFAREReader.PICC_AUTHENT1A, 8, key, uid)
+
+        # # Check if authenticated
+        # if status == MIFAREReader.MI_OK:
+        #     MIFAREReader.MFRC522_Read(8)
+        #     MIFAREReader.MFRC522_StopCrypto1()
+        # else:
+        #     print ("Authentication error")
 
