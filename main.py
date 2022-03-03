@@ -19,7 +19,7 @@ while True:
     #Get the spotify track id for the song
     track_uri = sp.get_track_uri(song)
     #Physically iteratate through the tags to get tag id and compare if spotify track id matches the value in dict
-    for i in range(num_tags-1):
+    for i in range(num_tags): 
         #Read the tag id 
         tag_id = "tag" + str(i) #TODO: change to what is read by arduino and sent via serial monitor
         #If match, just play song
@@ -35,7 +35,7 @@ while True:
             sp.play_song(sp.song_dict[tag_id])
             print("New song dict", sp.song_dict)
 
-        else:
+        elif(i < num_tags-1):
             #TODO: Rotate to position i
 
 
