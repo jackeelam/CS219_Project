@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 import os, sys
@@ -45,16 +43,3 @@ class rfidReader:
                 self.reader.write(data)
         finally:
             return
-
-reader = rfidReader()
-text = input('New data:')
-reader.writeTag(text)
-GPIO.cleanup()
-
-# try:
-#         text = input('New data:')
-#         print("Now place your tag to write")
-#         reader.write(text)
-#         print("Written")
-# finally:
-#         GPIO.cleanup()
