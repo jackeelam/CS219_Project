@@ -61,10 +61,7 @@ class rfid_reader:
             if status == self.MIFAREReader.MI_OK:
                 # Print UID
                 print ("Card read UID: %s,%s,%s,%s" % (uid[0], uid[1], uid[2], uid[3]))
-                return uid
-                '''
                 
-
                 # This is the default key for authentication
                 key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
 
@@ -81,7 +78,8 @@ class rfid_reader:
                     
                 else:
                     print ("Authentication error")
-                '''
+                
+                return uid
 
 rd = rfid_reader()
 while True:
