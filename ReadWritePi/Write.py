@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 
 import RPi.GPIO as GPIO
@@ -46,11 +47,12 @@ class rfidReader:
         finally:
             return
 
+'''
 reader = rfidReader()
 text = input('New data:')
 reader.writeTag(text)
 GPIO.cleanup()
-
+'''
 # try:
 #         text = input('New data:')
 #         print("Now place your tag to write")

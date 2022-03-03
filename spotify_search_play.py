@@ -15,9 +15,9 @@ class spotify:
     def init_song_dict(self):
         #TODO: REPLACE tag1, tag2, tag3 with the actual tag IDs
         song_dict = {}
-        song_dict['tag0'] = "spotify:track:14gmLQPNYokqB8OKxAp69f" #war with heaven
-        song_dict['tag1'] = "spotify:track:4ZtFanR9U6ndgddUvNcjcG" #good 4 u
-        song_dict['tag2'] = "spotify:track:2dAHKe37uyUrB0v0PJrDDj" #body and mind
+        song_dict['484218927'] = "spotify:track:14gmLQPNYokqB8OKxAp69f" #war with heaven, tag 1
+        song_dict['492214639'] = "spotify:track:4ZtFanR9U6ndgddUvNcjcG" #good 4 u, tag 2
+        song_dict['129481939'] = "spotify:track:2dAHKe37uyUrB0v0PJrDDj" #body and mind, tag 3
         return song_dict
         
     def get_track_uri(self, song):

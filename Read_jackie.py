@@ -81,7 +81,7 @@ class rfid_reader:
                 
                 return uid
 
-rd = rfid_reader()
-while True:
-    rd.read_tag_id()
+#rd = rfid_reader()
+#while True:
+#    rd.read_tag_id()
 

@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import os, sys
 
-from rfidReader import rfidReader
+from Write import rfidReader
 
 reader = rfidReader()
 text = input('New data:')
